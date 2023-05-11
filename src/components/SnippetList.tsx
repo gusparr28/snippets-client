@@ -2,6 +2,7 @@ import { readDir } from "@tauri-apps/api/fs"
 import { useEffect } from "react"
 import { desktopDir } from '@tauri-apps/api/path'
 import { useSnippetStore } from '../store/snippetsStore';
+import SnippetItem from "./SnippetItem";
 
 function SnippetList() {
   const snippetNames = useSnippetStore(state => state.snippetsNames);
@@ -20,9 +21,7 @@ function SnippetList() {
   return (
     <div>
       {snippetNames.map((snippetName) => (
-        <div>
-          <h1>{snippetName}</h1>
-        </div>
+        <SnippetItem snippetName={snippetName} />
       ))}
     </div>
   )
